@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @plant.user_name %>
+</p>
+
+<p>
+  <strong>Pic url:</strong>
+  <%= @plant.pic_url %>
+</p>
+
+<p>
+  <strong>Temp:</strong>
+  <%= @plant.temp %>
+</p>
+
+<p>
+  <strong>Humidity:</strong>
+  <%= @plant.humidity %>
+</p>
+
+<p>
+  <strong>Water height:</strong>
+  <%= @plant.water_height %>
+</p>
+
+<p>
+  <strong>Ele cond:</strong>
+  <%= @plant.ele_cond %>
+</p>
+
+<%= link_to 'Edit', edit_plant_path(@plant) %> |
+<%= link_to 'Back', plants_path %>

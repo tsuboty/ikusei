@@ -1,0 +1,53 @@
+<header>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 logo">
+                    
+                    <%= image_tag("logo.png",class:"logoimg") %>
+                </div>
+                <div class="col-sm-8">
+                    <h1 class="title">植物成育物語</h1>
+                </div>
+                <nav role="navigation">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-menu">
+
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav-menu">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/blogview">ホーム</a></li>
+                            <li><a href="/articles">設定</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+</header>
+
+    <div class="col-xs-2 col-xs-offset-5">
+      </div>  
+    <% temp=rand(10)+20 %>
+    <% pic= "00"+(rand(4)+1).to_s + ".jpg" %>
+    <% like = rand(30) %>
+    <% hum = rand(30) + 30 %>
+    
+    <%= button_to "投稿する" ,{controller: "blogview", action: "create"},params:{
+            user_name: like,
+            pic_url: pic,
+            temp: temp,
+            humidity: hum,
+            comment: "test"
+        },class:"btn btn-success"   %>
+
+    
+    
+
+  
+
+    
+
+
+
+

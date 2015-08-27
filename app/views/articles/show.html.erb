@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @article.user_name %>
+</p>
+
+<p>
+  <strong>Pic url:</strong>
+  <%= @article.pic_url %>
+</p>
+
+<p>
+  <strong>Temp:</strong>
+  <%= @article.temp %>
+</p>
+
+<p>
+  <strong>Humidity:</strong>
+  <%= @article.humidity %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @article.comment %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>

@@ -1,0 +1,111 @@
+
+    <%= render 'blogview/header' %>
+    <div class="container">
+        <div class="row">
+
+        <% @articles.each do |a| %>
+            
+            <article class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+
+            <span class="label label-success" style="float:right"><%= a.id %></span>
+                <h2>撮影日時<%= a.created_at.strftime("%Y年 %m月 %d日 ,%H:%M") %></h2>
+                
+                <div class="row comment_paretnt">
+                    <div class="col-sm-6">
+                        <%= image_tag(a.pic_url,options={class: "img-responsive",style: "margin-bottom: 10px;"}) %>
+                        <span class="label"></span>
+
+                        <table class="table table-condensed table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>気温</th>
+                                    <th>湿度</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><%= a.temp %></td>
+                                    <td><%= a.humidity %></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+                        <div class="row ">
+                            <div class="social">
+                                <%= image_tag("twitter.png",options={class: "social-icon",style: "margin-bottom:10px;"}) %>
+                                <%= image_tag("facebook.png",options={class: "social-icon",style: "margin-bottom:10px;"}) %>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <!-- コメント欄 -->
+                    <div class="col-sm-6 ">
+                        <div class="comment">
+                            <%= a.comment %>
+                        </div>
+                    </div>
+
+                    <div class="like">
+                        <%= image_tag "like.png" %>
+                        <span class="label label-info"><%= a.user_name %></span>
+                        
+                    </div>
+                    
+
+      
+
+        <!-- Button trigger modal -->
+        <a class="btn btn-success comment_btn" data-toggle="modal" href='#modal-id-<%= a.id %>'>コメント</a>
+
+                </div>
+            </article>
+
+
+            <div class="modal fade" id="modal-id-<%= a.id %>">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">コメント</h4>
+                       
+                        
+                    </div>
+
+                    <% %>
+                    <%= form_tag("/create_comment/#{a.id}", method: "post") do %>
+                    <div class="modal-body">
+                      <%= text_area :comment,:comment,:class => 'comment_field' %>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                        <!-- ポストする -->
+                        
+
+                        <%= submit_tag("コメント",class:"btn btn-success") %>
+
+                    </div>
+
+                    <% end %>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <% end %>
+
+        </div>
+    </div>
+
+      <!-- jQuery -->
+        <script src="//code.jquery.com/jquery.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    
+    <%= render 'blogview/footer' %>
+    
+

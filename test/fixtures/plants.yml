@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_name: MyString
+  pic_url: MyString
+  temp: 1.5
+  humidity: 1.5
+  water_height: 1.5
+  ele_cond: 1.5
+
+two:
+  user_name: MyString
+  pic_url: MyString
+  temp: 1.5
+  humidity: 1.5
+  water_height: 1.5
+  ele_cond: 1.5
